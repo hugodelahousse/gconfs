@@ -281,7 +281,7 @@ Templates are available for a bunch of IDE and programs, among them:
 \begin{frame}[fragile]
   \begin{block}{Tabs \& Spaces Basic Settings}
     \begin{minted}{vim}
-      " Basic tabs & sapce config
+      " Basic tabs & space config
       
       set tabstop=2     " set numbers of spaces per TAB
       set softabstop=2  " set number of spaces in tab when editing
