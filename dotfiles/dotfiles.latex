@@ -1,0 +1,295 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Ilmenau}       % or try default, Madrid, Darmstadt, Warsaw, ...
+  \usecolortheme{whale} % or try albatross, beaver, crane, ...
+  \usefonttheme{professionalfonts}    % or try default, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage{chemfig}
+% \usepackage[version=3]{mhchem}
+\usepackage{mdframed}
+\usepackage{booktabs}
+
+\usepackage[cache, langlinenos]{minted}
+\setminted{style=friendly, fontsize=\tiny, linenos}
+\BeforeBeginEnvironment{minted}{\begin{mdframed}}
+\AfterEndEnvironment{minted}{\end{mdframed}}
+
+% On Overleaf, these lines give you sharper preview images.
+% You might want to `comment them out before you export, though.
+\usepackage{pgfpages}
+\pgfpagesuselayout{resize to}[%
+  physical paper width=8in, physical paper height=6in]
+
+  % Here's where the presentation starts, with the info for the title slide
+\title[Introduction to dotfiles]{Introduction to dotfiles}
+\subtitle[And some tips]{And some tips}
+\author[chanfr\_v, delahou\_h \& sidore\_m]{}
+\date{\today}
+\subject{Vim, i3 \& Xresources}
+
+
+
+\usepackage{xcolor}
+\usepackage{listings}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% These three lines create an automatically generated table of contents.
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% Intro
+\section{Introduction}
+\begin{frame}{Introduction}
+  Hi!
+\end{frame}
+
+
+\begin{frame}{Introduction}
+  \begin{itemize}
+    \item On the PIE dotfiles are symlinks from afs/.confs/
+      \begin{exampleblock}{Example}
+        .vimrc is located at afs/.confs/vimrc
+      \end{exampleblock}
+    \item These dotfiles are copied in \textasciitilde/ thanks to afs/.confs/install.sh, which you must fill
+    \item Be careful, dotfiles not copied in afs/.confs/ will be removed at exit!
+  \end{itemize}
+\end{frame}
+
+\section{i3}
+\subsection*{i3 Window Manager}
+\begin{frame}{i3 Window Manager}
+  \begin{itemize}
+    \item What is a window manager?
+      \begin{itemize}
+        \item A graphical interface for the user.
+        \item Controls the placement and appearance of windows.
+        \item Might result in a desktop environment.
+      \end{itemize}
+    \item What about i3?
+      \begin{itemize}
+        \item Native, i3 is among the most ugly of them.
+        \item Light, highly customisable, he has a great potential.
+      \end{itemize}
+  \end{itemize}
+  Now, let's have a look at the dotfile.
+\end{frame}
+
+\subsection*{Config file}
+\begin{frame}{\textasciitilde/.config/i3/config}
+  \begin{itemize}
+    \item Where i3 configuration (fonts, borders\dots) is set
+    \item Location of all the useful shortcuts, learn them!
+      \begin{exampleblock}{Example}
+        Try \$mod + R to start the resize mode, then resize your window with \$mod + arrows
+      \end{exampleblock}
+    \item Useful place to start daemons with exec --no-startup-id
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Some recommandations (not for the PIE)}
+  \begin{itemize}
+    \item \href{https://wiki.archlinux.org/index.php/Redshift}{redshift}: Schedule a screen redshift to rest your eyes
+    \item \href{https://wiki.archlinux.org/index.php/Activating_Numlock_on_Bootup}{numlockx}: Acitvate numlock on bootup
+    \item \href{https://aur.archlinux.org/mons.git}{mons}: Automatic monitors
+    \item xautolock: Automatic lock screen
+    \item \href{https://wiki.archlinux.org/index.php/Udisks}{udiskie}: Automount USB devices
+  \end{itemize}
+\end{frame}
+
+\subsection*{i3 bar}
+\begin{frame}{i3 bar}
+  \begin{itemize}
+    \item Configured in \textasciitilde/.config/i3/config
+    \item Change the content and the bar behaviour
+      \begin{block}{Polybar}
+        Polybar is a github project which replace i3 bar. More customizable, allows click effects\dots Have a look!
+      \end{block}
+  \end{itemize}
+\end{frame}
+
+\subsection*{Useful links}
+\begin{frame}{Useful links}
+  \begin{itemize}
+    \item The \href{https://i3wm.org/docs/userguide.html}{i3 reference manual}
+    \item \href{https://github.com/jaagr/polybar}{Polybar}
+  \end{itemize}
+\end{frame}
+
+\section{Colorscheme}
+\begin{frame}{Base16}
+
+\end{frame}
+
+
+% Xressources
+\section{Xressources}
+\subsection*{Dotfile}
+\begin{frame}{Xressources}
+  \begin{itemize}
+    \item Where you set your colours, your font, and more.
+    \item Location: \textasciitilde/.Xressources
+      \begin{block}{Naming}
+        Xressources is just a naming convention, you can rename it according to your fantasies, then you will have to run:\\\$ xrdb <dotfile>
+      \end{block}
+  \end{itemize}
+\end{frame}
+
+\subsection*{Useful links}
+\begin{frame}{Useful links}
+  \begin{itemize}
+    \item \href{https://wiki.archlinux.org/index.php/X_resources}{Arch wiki}
+    \item \href{https://github.com/ryanoasis/nerd-fonts}{Nerd fonts}: Gives an indecent amount of glyphs
+  \end{itemize}
+\end{frame}
+
+\section{Vim}
+\begin{frame}{Vim}
+
+  \begin{itemize}
+    \item Written by Bram Moolenaar in C and Vim script
+    \item Vi-IMproved, is a text editor program based on Vi.
+    \item Released in 1991
+    \item Free and OpenSource \& GNU General Public License
+    \item One of the most popular text editor on Linux
+  \end{itemize}
+
+\end{frame}
+\subsection*{vimrc}
+\begin{frame}
+  \begin{block}{.vimrc}
+    The .vimrc file is the main configuration file for vim
+    \begin{itemize}
+      \item Use vim script language
+      \item YOU will learn how to fill it up
+      \item This configuration file is used for:
+        \begin{itemize}
+          \item colors
+          \item indentation
+          \item tabulation behaviour
+          \item plugins
+          \item any vim script command
+          \item and much more...
+        \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+
+  \begin{minted}{vim}
+    " Basic Vimrc\\
+    set nu            " set line number\\
+    syntax on
+  \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}{vim}
+    " Visual
+    set nu            " set line number
+    set ruler
+    set cursorline
+    set colorcolumn=80
+    " Colors
+    syntax on
+    set background=dark
+    colorscheme your-color-scheme
+    " Indentation and Tabulations
+    set autoindent    " set autoindent
+    set smartindent   " set smartindent
+    set cindent       " set the C indentation
+    set expandtab     " replace tab char by space
+    set shiftwidth=2  " set tab = 2 space
+    set softtabstop=2 " set softtabstop = 2 space
+    set showmatch     " Brackets matching highlight
+  \end{minted}
+\end{frame}
+
+
+\subsection*{Vim Plugins}
+
+\begin{frame}{Plugins}
+
+  Multiple Package managers available
+  \begin{itemize}
+    \item Vundle
+    \item Pathogen
+    \item vim-plug
+    \item neobundle
+  \end{itemize}
+
+  Today we are going to present Vundle
+
+\end{frame}
+
+\begin{frame}[fragile]{Vundle}
+
+  Simply run \mintinline{bash}{git clone http://github.com/VundleVim ~/.vim/bundle/Vundle.vim}
+
+  In your vimrc:
+  \begin{minted}{vim}
+    set nocompatible              " be iMproved, required
+    filetype off                  " required
+
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+
+    Plugin 'VundleVim/Vundle.vim'   " Plugin Manager
+
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+  \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]{Plugin}
+
+  Now you are able to install plugins, simply add them to your .vimrc
+  \begin{minted}{vim}
+    set nocompatible              " be iMproved, required
+    filetype off                  " required
+
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+
+    Plugin 'VundleVim/Vundle.vim'     " Plugin Manager
+    Plugin 'vim-airline/vim-airline'  " Statusbar
+    Plugin 'vim-syntastic/syntastic'  " Syntax Checking
+    Plugin 'chriskempson/base16'      " Base16 Colorscheme
+
+    let g:syntastic_c_complier_options='-Wall -Werror -Wextra -pedantic -std=c99'
+
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+  \end{minted}
+
+
+\end{frame}
+
+
+\section{Recap}
+\begin{frame}{Recap}
+
+\end{frame}
+
+\section{Questions}
+\begin{frame}{Questions}
+  Questions?
+\end{frame}
+
+\end{document}
