@@ -2,7 +2,7 @@
 
 \mode<presentation>
 {
-  \usetheme{Ilmenau}       % or try default, Madrid, Darmstadt, Warsaw, ...
+  \usetheme{default}       % or try default, Madrid, Darmstadt, Warsaw, ...
   \usecolortheme{whale} % or try albatross, beaver, crane, ...
   \usefonttheme{professionalfonts}    % or try default, structurebold, ...
   \setbeamertemplate{navigation symbols}{}
@@ -12,6 +12,7 @@
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{csquotes}
 % \usepackage{chemfig}
 % \usepackage[version=3]{mhchem}
 \usepackage{mdframed}
@@ -31,7 +32,7 @@
   % Here's where the presentation starts, with the info for the title slide
 \title[Introduction to dotfiles]{Introduction to dotfiles}
 \subtitle[And some tips]{And some tips}
-\author[chanfr\_v, delahou\_h \& sidore\_m]{}
+\author{chanfr\_v - delahou\_h - sidore\_m}
 \date{\today}
 \subject{Vim, i3 \& Xresources}
 
@@ -42,9 +43,12 @@
 
 \begin{document}
 
+\makeatletter
 \begin{frame}
   \titlepage
+  \@author
 \end{frame}
+\makeatother
 
 % These three lines create an automatically generated table of contents.
 \begin{frame}{Outline}
@@ -130,7 +134,50 @@
 \end{frame}
 
 \section{Colorscheme}
-\begin{frame}{Base16}
+\subsection*{Base16}
+\begin{frame}{What is base 16 ?}
+
+  \enquote{An architecture for building themes [...] using a base of 16 colors}
+
+Templates are available for a bunch of IDE and programs, among them:
+
+  \small
+  \begin{itemize}
+    \item i3
+    \item Shell
+    \item Xresources
+    \item Vim
+    \item Xcode
+    \item Jetbrains (Rider, CLion, Pycharm...)
+  \end{itemize}
+  \normalsize
+
+\end{frame}
+
+\begin{frame}[fragile]{How to get/use Base 16 ?}
+
+  First, install a builder (Many are available)
+
+  % \mintinline{bash}{pip3 install pybase16-builder}
+
+  Then download and build the colorschems
+  \begin{minted}{bash}
+    pip3 install pybase16-builder
+    mkdir -p $HOME/.dotfiles/base16 && cd $HOME/.dotfiles/base16
+    pybase16 update && pybase16 build
+  \end{minted}
+  Now all the color schemes are downloaded.
+
+  Read their README to know how to apply them
+\end{frame}
+\begin{frame}[fragile]{Base16 Shell}
+  For instance, to get base16 in your shells, in your .bashrc/.zshrc:
+  \begin{minted}{bash}
+    BASE16_SHELL=$HOME/.dotfiles/base16/templates/shell/
+    [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] &&\
+      eval "$($BASE16_SHELL/profile_helper.sh)"
+  \end{minted}
+
 
 \end{frame}
 
@@ -239,7 +286,7 @@
 
 \begin{frame}[fragile]{Vundle}
 
-  Simply run \mintinline{bash}{git clone http://github.com/VundleVim ~/.vim/bundle/Vundle.vim}
+  Simply run \mintinline{bash}{git clone http://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim}
 
   In your vimrc:
   \begin{minted}{vim}
@@ -271,6 +318,12 @@
     Plugin 'vim-airline/vim-airline'  " Statusbar
     Plugin 'vim-syntastic/syntastic'  " Syntax Checking
     Plugin 'chriskempson/base16'      " Base16 Colorscheme
+
+
+    if filereadable(expand("~/.vimrc_background"))
+      let base16colorspace=256
+      source ~/.vimrc_background
+    endif
 
     let g:syntastic_c_complier_options='-Wall -Werror -Wextra -pedantic -std=c99'
 
