@@ -312,12 +312,12 @@ Templates are available for a bunch of IDE and programs, among them:
 
 \begin{frame}[fragile]
   \begin{minted}{vim}
-    " More Vim option & protips
+    " More Vim options & protips
     
     set background=dark
     
-    set colorcolumn=80 " colorized the 80 color
-    " color is defined by the colorscheme
+    set colorcolumn=80 " colorized the 80 column with a color
+    " the color used is defined by the colorscheme, or red by default
 
     set spell   " check for English spelling 
   
