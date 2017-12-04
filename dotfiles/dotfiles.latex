@@ -11,8 +11,8 @@
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{csquotes}
+% \usepackage[T1]{fontenc}
 % \usepackage{chemfig}
 % \usepackage[version=3]{mhchem}
 \usepackage{mdframed}
@@ -190,7 +190,8 @@ Templates are available for a bunch of IDE and programs, among them:
     \item Where you set your colours, your font, and more.
     \item Location: \textasciitilde/.Xressources
       \begin{block}{Naming}
-        Xressources is just a naming convention, you can rename it according to your fantasies, then you will have to run:\\\$ xrdb <dotfile>
+        Xressources is just a naming convention, you can rename it according to
+        your fantasies, then you will have to run:\\\$ xrdb -merge <dotfile>
       \end{block}
   \end{itemize}
 \end{frame}
@@ -224,6 +225,7 @@ Templates are available for a bunch of IDE and programs, among them:
       \item YOU will learn how to fill it up
       \item This configuration file is used for:
         \begin{itemize}
+          \item ui
           \item colors
           \item indentation
           \item tabulation behaviour
@@ -235,35 +237,97 @@ Templates are available for a bunch of IDE and programs, among them:
   \end{block}
 \end{frame}
 
+
+\begin{frame}
+  \begin{block}{How to modify vim resources}
+    \begin{itemize}
+      \item Directly in vim, in the command bar.\\
+      \item \textbf{:vimscript}\\
+      \item Like :
+             \begin{itemize}
+              \item \textbf{:set number}
+              \item \textbf{:syntax enable}
+            \end{itemize}
+      \item By writting vimscript in ~/.vimrc or /etc/vimrc or /etc/vim/vimrc.
+    \end{itemize}
+  \end{block}
+  \begin{block}{Vimscript Syntax}
+    Most of the \textbf{options} are \textit{setted} by the token
+    \textbf{set}.\\
+    A single \textbf{"} are used to mark comments.\\
+    We recommend writing a single configuration modification per line. And to
+    set up parts of your vimrc configuration. As it could expand to hundred of
+    lines.
+  \end{block}
+\end{frame}
+
 \begin{frame}[fragile]
+  \begin{block}{UI Basic Settings}
+    \begin{minted}{vim}
+      " Basic UI Config
+      
+      set number        " set line numbers
+      set nu            " same
 
-  \begin{minted}{vim}
-    " Basic Vimrc\\
-    set nu            " set line number\\
-    syntax on
-  \end{minted}
+      set showcmd       " show command in bottom bar
+      set ruler         " show cursor positon
+      set cursorline    " highlight current line
+      set wildmenu      " show all autocomplete of the vim commands
+      set showmatch     " highlight brackets, parenthesis.
+    \end{minted}
+  \end{block}
+\end{frame}
 
+\begin{frame}[fragile]
+  \begin{block}{Tabs \& Spaces Basic Settings}
+    \begin{minted}{vim}
+      " Basic tabs & sapce config
+      
+      set tabstop=2     " set numbers of spaces per TAB
+      set softabstop=2  " set number of spaces in tab when editing
+      set shiftwidth=2  " set tab to 2 spaces
+      set expandtab     " convert tabs to spaces
+    \end{minted}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Indentation Basic Settings}
+    \begin{minted}{vim}
+      " Basic indent options
+      
+      set autoindent    " copy indentation of the previous line
+      set ai            " same
+
+      set smartindent   " insert more levels of indentation, works well on C files
+      set si            " same
+
+      set cindent       " set the C language indentation, strict but customizable
+    
+      filetype plugin indent on
+      " enable file type detection and associate the good indentation for it
+    \end{minted}
+  \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
   \begin{minted}{vim}
-    " Visual
-    set nu            " set line number
-    set ruler
-    set cursorline
-    set colorcolumn=80
-    " Colors
-    syntax on
+    " More Vim option & protips
+    
     set background=dark
-    colorscheme your-color-scheme
-    " Indentation and Tabulations
-    set autoindent    " set autoindent
-    set smartindent   " set smartindent
-    set cindent       " set the C indentation
-    set expandtab     " replace tab char by space
-    set shiftwidth=2  " set tab = 2 space
-    set softtabstop=2 " set softtabstop = 2 space
-    set showmatch     " Brackets matching highlight
+    
+    set colorcolumn=80 " colorized the 80 color
+    " color is defined by the colorscheme
+
+    set spell   " check for English spelling 
+  
+    colorscheme your-favorite-colorscheme 
+    " override vim default colors with custom colors
+
+    " Setting keymaps
+    map <KEY> :vimscript<CR>
+    
+    set lazydraw     " optimize vim output, to keep some static elements unchanged
   \end{minted}
 \end{frame}
 
