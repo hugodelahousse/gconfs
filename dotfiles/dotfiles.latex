@@ -239,6 +239,16 @@ Templates are available for a bunch of IDE and programs, among them:
 
 
 \begin{frame}
+  \begin{block}{Vimscript Syntax}
+    \begin{itemize}
+      \item Most of the \textbf{options} are \textit{setted} by the token \textbf{set}.
+      \item A single \textbf{"} are used to mark comments.
+      \item We recommend writing a single configuration modification per line. And to set up parts of your vimrc configuration. As it could expand to hundred of lines.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
   \begin{block}{How to modify vim resources}
     \begin{itemize}
       \item Directly in vim, in the command bar.\\
@@ -248,16 +258,8 @@ Templates are available for a bunch of IDE and programs, among them:
               \item \textbf{:set number}
               \item \textbf{:syntax enable}
             \end{itemize}
-      \item By writting vimscript in ~/.vimrc or /etc/vimrc or /etc/vim/vimrc.
+      \item By writting vimscript in ~/.vimrc or /etc/vimrc or /etc/vim/vimrc. But without the \textbf{:} of course.
     \end{itemize}
-  \end{block}
-  \begin{block}{Vimscript Syntax}
-    Most of the \textbf{options} are \textit{setted} by the token
-    \textbf{set}.\\
-    A single \textbf{"} are used to mark comments.\\
-    We recommend writing a single configuration modification per line. And to
-    set up parts of your vimrc configuration. As it could expand to hundred of
-    lines.
   \end{block}
 \end{frame}
 
@@ -281,7 +283,7 @@ Templates are available for a bunch of IDE and programs, among them:
 \begin{frame}[fragile]
   \begin{block}{Tabs \& Spaces Basic Settings}
     \begin{minted}{vim}
-      " Basic tabs & space config
+      " Basic tabs \& space config
       
       set tabstop=2     " set numbers of spaces per TAB
       set softabstop=2  " set number of spaces in tab when editing
@@ -311,9 +313,12 @@ Templates are available for a bunch of IDE and programs, among them:
 \end{frame}
 
 \begin{frame}[fragile]
+ \begin{block}{More Simple \& Cool Stuff}
   \begin{minted}{vim}
-    " More Vim options & protips
+    " More Vim options \& protips
     
+    set list         " by default, replace '\n' with visible '\$'
+
     set background=dark
     
     set colorcolumn=80 " colorized the 80 column with a color
@@ -329,8 +334,71 @@ Templates are available for a bunch of IDE and programs, among them:
     
     set lazydraw     " optimize vim output, to keep some static elements unchanged
   \end{minted}
+  \end{block}
 \end{frame}
 
+\subsection*{Survival Vim for Exams: the SVE}
+\begin{frame}[fragile]
+  \begin{block}{SVE : for Newbies}
+  \begin{minted}{vim}
+  " Survival VIM for Exams
+
+  set number
+  set expandtab
+  set softtabstop=2
+  set shiftwidth=2
+  syntax enable
+  set list
+  set listchars=trail:@
+  set autoindent
+  set smartindent
+  set colorcolumn=80
+  \end{minted}
+  \end{block}
+\end{frame}
+
+\subsection*{autocmd}
+\begin{frame}[fragile]
+  \begin{block}{autocmd}
+  This feature of vim allow you to automate execution of vimscripts.
+  \end{block}
+  \begin{minted}{vim}
+    " Example of use of autocmd
+    autocmd bufnewfile *.example source /path/to/a/txt/file
+
+    " autocmd with bufnewfile keyword while execute the content of source at the
+    " creation of a new file, matching the globing '*.example'
+  \end{minted}
+  \begin{block}{file.txt}
+    \begin{minted}{vim}
+    :insert
+    The content of this file will be written each time, you create a new
+    file with vim.
+    Typing the command:
+    42sh \$ vim file.example
+      or
+    42sh \$ vim xx.example
+    This is what the 'insert' command do, it is quite useful.
+    \end{minted}
+  \end{block}
+\end{frame}
+
+%\subsection*{highlight \& match}
+%\begin{frame}
+%  \begin{block}{higlight}
+%    This vimscript keyword allow setting a \textit{color}, fore and back ground.
+%  \end{block}
+%  \begin{block}{match}
+%    This vimscript keyword allow setting a \textbf{highlight} value on a RegExp.
+%    This will highlight the regex pattern in every file.
+%  \end{block}
+%  \begin{block}{Matching wrong coding style}
+%    \begin{minted}{vim}
+%    highlight WRONGCODINGSTYLE ctermbg=red ctermfg=white
+%      match WRONGCODINGSTYLE /\\ if\(\\                   " will match if
+%    \end{minted}
+%  \end{block}
+%\end{frame}
 
 \subsection*{Vim Plugins}
 
