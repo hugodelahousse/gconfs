@@ -32,7 +32,7 @@
   % Here's where the presentation starts, with the info for the title slide
 \title[Introduction to dotfiles]{Introduction to dotfiles}
 \subtitle[And some tips]{And some tips}
-\author{chanfr\_v - delahou\_h - sidore\_m}
+\author{chanfr\_v - delaho\_h - sidore\_m}
 \date{\today}
 \subject{Vim, i3 \& Xresources}
 
@@ -56,7 +56,7 @@
 \end{frame}
 
 % Intro
-\section{Introduction}
+\section*{Introduction}
 \begin{frame}{Introduction}
   Hi!
 \end{frame}
@@ -217,8 +217,8 @@ Templates are available for a bunch of IDE and programs, among them:
 
 \end{frame}
 \subsection*{vimrc}
-\begin{frame}
-  \begin{block}{.vimrc}
+\begin{frame}{.vimrc}
+  \begin{block}{}
     The .vimrc file is the main configuration file for vim
     \begin{itemize}
       \item Use vim script language
@@ -238,7 +238,7 @@ Templates are available for a bunch of IDE and programs, among them:
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{.vimrc}
   \begin{block}{Vimscript Syntax}
     \begin{itemize}
       \item Most of the \textbf{options} are \textit{setted} by the token \textbf{set}.
@@ -248,7 +248,7 @@ Templates are available for a bunch of IDE and programs, among them:
   \end{block}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{.vimrc}
   \begin{block}{How to modify vim resources}
     \begin{itemize}
       \item Directly in vim, in the command bar.\\
@@ -265,121 +265,121 @@ Templates are available for a bunch of IDE and programs, among them:
 
 \begin{frame}[fragile]
   \begin{block}{UI Basic Settings}
-    \begin{minted}{vim}
-      " Basic UI Config
-      
-      set number        " set line numbers
-      set nu            " same
+\begin{minted}{vim}
+" Basic UI Config
 
-      set showcmd       " show command in bottom bar
-      set ruler         " show cursor positon
-      set cursorline    " highlight current line
-      set wildmenu      " show all autocomplete of the vim commands
-      set showmatch     " highlight brackets, parenthesis.
-    \end{minted}
+set number        " set line numbers
+set nu            " same
+
+set showcmd       " show command in bottom bar
+set ruler         " show cursor positon
+set cursorline    " highlight current line
+set wildmenu      " show all autocomplete of the vim commands
+set showmatch     " highlight brackets, parenthesis.
+\end{minted}
   \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
   \begin{block}{Tabs \& Spaces Basic Settings}
-    \begin{minted}{vim}
-      " Basic tabs \& space config
-      
-      set tabstop=2     " set numbers of spaces per TAB
-      set softabstop=2  " set number of spaces in tab when editing
-      set shiftwidth=2  " set tab to 2 spaces
-      set expandtab     " convert tabs to spaces
-    \end{minted}
+\begin{minted}{vim}
+" Basic tabs \& space config
+
+set tabstop=2     " set numbers of spaces per TAB
+set softabstop=2  " set number of spaces in tab when editing
+set shiftwidth=2  " set tab to 2 spaces
+set expandtab     " convert tabs to spaces
+\end{minted}
   \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
   \begin{block}{Indentation Basic Settings}
-    \begin{minted}{vim}
-      " Basic indent options
-      
-      set autoindent    " copy indentation of the previous line
-      set ai            " same
+\begin{minted}{vim}
+" Basic indent options
 
-      set smartindent   " insert more levels of indentation, works well on C files
-      set si            " same
+set autoindent    " copy indentation of the previous line
+set ai            " same
 
-      set cindent       " set the C language indentation, strict but customizable
-    
-      filetype plugin indent on
-      " enable file type detection and associate the good indentation for it
-    \end{minted}
+set smartindent   " insert more levels of indentation, works well on C files
+set si            " same
+
+set cindent       " set the C language indentation, strict but customizable
+
+filetype plugin indent on
+" enable file type detection and associate the good indentation for it
+\end{minted}
   \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
  \begin{block}{More Simple \& Cool Stuff}
-  \begin{minted}{vim}
-    " More Vim options \& protips
-    
-    set list         " by default, replace '\n' with visible '\$'
+\begin{minted}{vim}
+" More Vim options \& protips
 
-    set background=dark
-    
-    set colorcolumn=80 " colorized the 80 column with a color
-    " the color used is defined by the colorscheme, or red by default
+set list         " by default, replace '\n' with visible '\$'
 
-    set spell   " check for English spelling 
-  
-    colorscheme your-favorite-colorscheme 
-    " override vim default colors with custom colors
+set background=dark
 
-    " Setting keymaps
-    map <KEY> :vimscript<CR>
-    
-    set lazydraw     " optimize vim output, to keep some static elements unchanged
-  \end{minted}
+set colorcolumn=80 " colorized the 80 column with a color
+" the color used is defined by the colorscheme, or red by default
+
+set spell   " check for English spelling 
+
+colorscheme your-favorite-colorscheme 
+" override vim default colors with custom colors
+
+" Setting keymaps
+map <KEY> :vimscript<CR>
+
+set lazydraw     " optimize vim output, to keep some static elements unchanged
+\end{minted}
   \end{block}
 \end{frame}
 
 \subsection*{Survival Vim for Exams: the SVE}
-\begin{frame}[fragile]
+\begin{frame}[fragile]{Survival Vim for Exams}
   \begin{block}{SVE : for Newbies}
   \begin{minted}{vim}
-  " Survival VIM for Exams
+" Survival VIM for Exams
 
-  set number
-  set expandtab
-  set softtabstop=2
-  set shiftwidth=2
-  syntax enable
-  set list
-  set listchars=trail:@
-  set autoindent
-  set smartindent
-  set colorcolumn=80
+set number
+set expandtab
+set softtabstop=2
+set shiftwidth=2
+syntax enable
+set list
+set listchars=trail:@
+set autoindent
+set smartindent
+set colorcolumn=80
   \end{minted}
   \end{block}
 \end{frame}
 
 \subsection*{autocmd}
-\begin{frame}[fragile]
+\begin{frame}[fragile]{autocmd}
   \begin{block}{autocmd}
   This feature of vim allow you to automate execution of vimscripts.
   \end{block}
-  \begin{minted}{vim}
-    " Example of use of autocmd
-    autocmd bufnewfile *.example source /path/to/a/txt/file
+\begin{minted}{vim}
+" Example of use of autocmd
+autocmd bufnewfile *.example source /path/to/a/txt/file
 
-    " autocmd with bufnewfile keyword while execute the content of source at the
-    " creation of a new file, matching the globing '*.example'
-  \end{minted}
+" autocmd with bufnewfile keyword while execute the content of source at the
+" creation of a new file, matching the globing '*.example'
+\end{minted}
   \begin{block}{file.txt}
-    \begin{minted}{vim}
-    :insert
-    The content of this file will be written each time, you create a new
-    file with vim.
-    Typing the command:
-    42sh \$ vim file.example
-      or
-    42sh \$ vim xx.example
-    This is what the 'insert' command do, it is quite useful.
-    \end{minted}
+\begin{minted}{vim}
+:insert
+The content of this file will be written each time, you create a new
+file with vim.
+Typing the command:
+42sh \$ vim file.example
+or
+42sh \$ vim xx.example
+This is what the 'insert' command do, it is quite useful.
+\end{minted}
   \end{block}
 \end{frame}
 
@@ -467,12 +467,12 @@ Templates are available for a bunch of IDE and programs, among them:
 \end{frame}
 
 
-\section{Recap}
+\section*{Recap}
 \begin{frame}{Recap}
 
 \end{frame}
 
-\section{Questions}
+\section*{Questions}
 \begin{frame}{Questions}
   Questions?
 \end{frame}
