@@ -1,13 +1,6 @@
 \documentclass{beamer}
 
-\mode<presentation>
-{
-  \usetheme{default}       % or try default, Madrid, Darmstadt, Warsaw, ...
-  \usecolortheme{whale} % or try albatross, beaver, crane, ...
-  \usefonttheme{professionalfonts}    % or try default, structurebold, ...
-  \setbeamertemplate{navigation symbols}{}
-  \setbeamertemplate{caption}[numbered]
-}
+\usetheme{Madrid}
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -17,9 +10,12 @@
 % \usepackage[version=3]{mhchem}
 \usepackage{mdframed}
 \usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{listings}
 
 \usepackage[cache, langlinenos]{minted}
 \setminted{style=friendly, fontsize=\footnotesize, linenos}
+
 \BeforeBeginEnvironment{minted}{\begin{mdframed}}
 \AfterEndEnvironment{minted}{\end{mdframed}}
 
@@ -37,17 +33,9 @@
 \subject{Vim, i3 \& Xresources}
 
 
-
-\usepackage{xcolor}
-\usepackage{listings}
-
 \begin{document}
 
-\makeatletter
-\begin{frame}
-  \titlepage
-\end{frame}
-\makeatother
+\frame{\maketitle}
 
 % These three lines create an automatically generated table of contents.
 \begin{frame}{Outline}
@@ -134,7 +122,7 @@ Man pages
 \end{frame}
 
 \subsection*{Config file}
-\begin{frame}{\mintinline{bash}{~/.config/i3/config}}
+\begin{frame}{.config/i3/config}
   \begin{itemize}
   \item Where i3 configuration (fonts, borders\dots) is set
   \item Location of all the useful shortcuts, learn them!
@@ -396,9 +384,9 @@ autocmd bufnewfile *.example source /path/to/a/txt/file
 The content of this file will be written each time, you
 create a new file with vim.
 Typing the command:
-42sh \$ vim file.example
+42sh$ vim file.example
 or
-42sh \$ vim xx.example
+42sh$ vim xx.example
 This is what the `insert' command do, it is quite useful.
 \end{minted}
   \end{block}
