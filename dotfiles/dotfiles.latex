@@ -19,7 +19,7 @@
 \usepackage{booktabs}
 
 \usepackage[cache, langlinenos]{minted}
-\setminted{style=friendly, fontsize=\tiny, linenos}
+\setminted{style=friendly, fontsize=\footnotesize, linenos}
 \BeforeBeginEnvironment{minted}{\begin{mdframed}}
 \AfterEndEnvironment{minted}{\end{mdframed}}
 
@@ -46,7 +46,6 @@
 \makeatletter
 \begin{frame}
   \titlepage
-  \@author
 \end{frame}
 \makeatother
 
@@ -64,14 +63,56 @@
 
 \begin{frame}{Introduction}
   \begin{itemize}
-    \item On the PIE dotfiles are symlinks from afs/.confs/
-      \begin{exampleblock}{Example}
-        .vimrc is located at afs/.confs/vimrc
+    \item On the PIE dotfiles are symlinks from \mintinline{bash}{afs/.confs/}
+    \begin{exampleblock}{Example}
+      \mintinline{bash}{.vimrc} is located at \mintinline{bash}{afs/.confs/vimrc}
       \end{exampleblock}
-    \item These dotfiles are copied in \textasciitilde/ thanks to afs/.confs/install.sh, which you must fill
-    \item Be careful, dotfiles not copied in afs/.confs/ will be removed at exit!
+    \item These dotfiles are copied in \mintinline{bash}{~/} thanks to \mintinline{bash}{afs/.confs/install.sh}, which you must fill
+    \item Be careful, dotfiles not copied in \mintinline{bash}{afs/.confs/} will be removed at exit!
   \end{itemize}
 \end{frame}
+
+% Xresources
+\section{Xresources}
+\subsection*{What is X11?}
+\begin{frame}{X Window System (X11)}
+\begin{itemize}
+  \item The X Window System (X11, or shortened to simply X) is a windowing system for bitmap displays, common on UNIX-like computer operating systems.
+  \item i3 is designed for X11.
+  \item To load i3 you have the choice:
+    \begin{itemize}
+      \item Boot on tty*, then execute \mintinline{bash}{~/.xinitrc} with startx.
+      \item Display Manager.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection*{Dotfile}
+\begin{frame}{Xresources}
+\begin{itemize}
+  \item Where you set your colours, your font, and more.
+  \item Location: \mintinline{bash}{~/.Xresources}
+  \begin{block}{Naming}
+    Xresources is just a naming convention, you can rename it according to your fantasies, then you will have to run: \mintinline{bash}{$ xrdb dotfile}
+  \end{block}
+\end{itemize}
+\end{frame}
+
+\subsection*{Useful links}
+\begin{frame}{Useful links}
+Links
+\begin{itemize}
+  \item \href{https://wiki.archlinux.org/index.php/X_resources}{Arch wiki}
+  \item \href{https://github.com/ryanoasis/nerd-fonts}{Nerd fonts}: Gives an indecent amount of glyphs
+\end{itemize}
+Man pages
+\begin{itemize}
+  \item X(1)
+  \item xrdb(1)
+  \item xset(1)
+\end{itemize}
+\end{frame}
+
 
 \section{i3}
 \subsection*{i3 Window Manager}
@@ -93,21 +134,21 @@
 \end{frame}
 
 \subsection*{Config file}
-\begin{frame}{\textasciitilde/.config/i3/config}
+\begin{frame}{\mintinline{bash}{~/.config/i3/config}}
   \begin{itemize}
-    \item Where i3 configuration (fonts, borders\dots) is set
-    \item Location of all the useful shortcuts, learn them!
-      \begin{exampleblock}{Example}
-        Try \$mod + R to start the resize mode, then resize your window with \$mod + arrows
-      \end{exampleblock}
-    \item Useful place to start daemons with exec --no-startup-id
+  \item Where i3 configuration (fonts, borders\dots) is set
+  \item Location of all the useful shortcuts, learn them!
+  \begin{exampleblock}{Example}
+    Try \mintinline{bash}{$mod + R} to start the resize mode, then resize your window with \mintinline{bash}{$mod + arrows}
+  \end{exampleblock}
+  \item Useful place to start daemons with \mintinline{bash}{exec --no-startup-id}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Some recommandations (not for the PIE)}
+\begin{frame}{Some recommendations (not for the PIE)}
   \begin{itemize}
     \item \href{https://wiki.archlinux.org/index.php/Redshift}{redshift}: Schedule a screen redshift to rest your eyes
-    \item \href{https://wiki.archlinux.org/index.php/Activating_Numlock_on_Bootup}{numlockx}: Acitvate numlock on bootup
+    \item \href{https://wiki.archlinux.org/index.php/Activating_Numlock_on_Bootup}{numlockx}: Activate numlock on bootup
     \item \href{https://aur.archlinux.org/mons.git}{mons}: Automatic monitors
     \item xautolock: Automatic lock screen
     \item \href{https://wiki.archlinux.org/index.php/Udisks}{udiskie}: Automount USB devices
@@ -117,10 +158,10 @@
 \subsection*{i3 bar}
 \begin{frame}{i3 bar}
   \begin{itemize}
-    \item Configured in \textasciitilde/.config/i3/config
+    \item Configured in \mintinline{bash}{~/.config/i3/config}
     \item Change the content and the bar behaviour
       \begin{block}{Polybar}
-        Polybar is a github project which replace i3 bar. More customizable, allows click effects\dots Have a look!
+        Polybar is a github project which replaces i3 bar. More customizable, allows click effects\dots Have a look!
       \end{block}
   \end{itemize}
 \end{frame}
@@ -135,9 +176,9 @@
 
 \section{Colorscheme}
 \subsection*{Base16}
-\begin{frame}{What is base 16 ?}
+\begin{frame}{What is base 16?}
 
-  \enquote{An architecture for building themes [...] using a base of 16 colors}
+  \enquote{An architecture for building themes [\dots] using a base of 16 colors}
 
 Templates are available for a bunch of IDE and programs, among them:
 
@@ -148,13 +189,13 @@ Templates are available for a bunch of IDE and programs, among them:
     \item Xresources
     \item Vim
     \item Xcode
-    \item Jetbrains (Rider, CLion, Pycharm...)
+    \item Jetbrains (Rider, CLion, Pycharm\dots)
   \end{itemize}
   \normalsize
 
 \end{frame}
 
-\begin{frame}[fragile]{How to get/use Base 16 ?}
+\begin{frame}[fragile]{How to get/use Base 16?}
 
   First, install a builder (Many are available)
 
@@ -173,38 +214,14 @@ Templates are available for a bunch of IDE and programs, among them:
 
 \end{frame}
 \begin{frame}[fragile]{Base16 Shell}
-  For instance, to get base16 in your shells, in your .bashrc/.zshrc:
+  For instance, to get base16 in your shells, in your \mintinline{bash}{.bashrc/.zshrc}:
   \begin{minted}{bash}
     BASE16_SHELL=$HOME/.dotfiles/base16/templates/shell/
     [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] &&\
       eval "$($BASE16_SHELL/profile_helper.sh)"
   \end{minted}
-
-
 \end{frame}
 
-
-% Xressources
-\section{Xressources}
-\subsection*{Dotfile}
-\begin{frame}{Xressources}
-  \begin{itemize}
-    \item Where you set your colours, your font, and more.
-    \item Location: \textasciitilde/.Xressources
-      \begin{block}{Naming}
-        Xressources is just a naming convention, you can rename it according to
-        your fantasies, then you will have to run:\\\$ xrdb -merge <dotfile>
-      \end{block}
-  \end{itemize}
-\end{frame}
-
-\subsection*{Useful links}
-\begin{frame}{Useful links}
-  \begin{itemize}
-    \item \href{https://wiki.archlinux.org/index.php/X_resources}{Arch wiki}
-    \item \href{https://github.com/ryanoasis/nerd-fonts}{Nerd fonts}: Gives an indecent amount of glyphs
-  \end{itemize}
-\end{frame}
 
 \section{Vim}
 \begin{frame}{Vim}
@@ -221,7 +238,7 @@ Templates are available for a bunch of IDE and programs, among them:
 \subsection*{vimrc}
 \begin{frame}{.vimrc}
   \begin{block}{}
-    The .vimrc file is the main configuration file for vim
+    The \mintinline{bash}{.vimrc} file is the main configuration file for vim
     \begin{itemize}
       \item Use vim script language
       \item YOU will learn how to fill it up
@@ -233,7 +250,7 @@ Templates are available for a bunch of IDE and programs, among them:
           \item tabulation behaviour
           \item plugins
           \item any vim script command
-          \item and much more...
+          \item and much more\dots
         \end{itemize}
     \end{itemize}
   \end{block}
@@ -260,7 +277,7 @@ Templates are available for a bunch of IDE and programs, among them:
               \item \textbf{:set number}
               \item \textbf{:syntax enable}
             \end{itemize}
-      \item By writting vimscript in ~/.vimrc or /etc/vimrc or /etc/vim/vimrc. But without the \textbf{:} of course.
+          \item By writting vimscript in \mintinline{bash}{~/.vimrc} or \mintinline{bash}{/etc/vimrc} or \mintinline{bash}{/etc/vim/vimrc}. But without the \textbf{:} of course.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -300,16 +317,16 @@ set expandtab     " convert tabs to spaces
 \begin{minted}{vim}
 " Basic indent options
 
-set autoindent    " copy indentation of the previous line
-set ai            " same
+set autoindent  " copy indentation of the previous line
+set ai          " same
 
-set smartindent   " insert more levels of indentation, works well on C files
-set si            " same
+set smartindent " more levels of indentation, nice on C files
+set si          " same
 
-set cindent       " set the C language indentation, strict but customizable
+set cindent     " C indentation, strict but customizable
 
+" enable file type detection and associate its good indentation
 filetype plugin indent on
-" enable file type detection and associate the good indentation for it
 \end{minted}
   \end{block}
 \end{frame}
@@ -319,22 +336,23 @@ filetype plugin indent on
 \begin{minted}{vim}
 " More Vim options \& protips
 
-set list         " by default, replace '\n' with visible '\$'
+set list         " by default, replace '\n' with visible '$'
 
 set background=dark
 
 set colorcolumn=80 " colorized the 80 column with a color
-" the color used is defined by the colorscheme, or red by default
+" the color is set by the colorscheme, or red by default
 
-set spell   " check for English spelling 
+set spell   " check for English spelling
 
-colorscheme your-favorite-colorscheme 
+colorscheme your-favorite-colorscheme
 " override vim default colors with custom colors
 
 " Setting keymaps
 map <KEY> :vimscript<CR>
 
-set lazydraw     " optimize vim output, to keep some static elements unchanged
+" optimize vim output, to keep some static elements unchanged
+set lazydraw
 \end{minted}
   \end{block}
 \end{frame}
@@ -368,19 +386,20 @@ set colorcolumn=80
 " Example of use of autocmd
 autocmd bufnewfile *.example source /path/to/a/txt/file
 
-" autocmd with bufnewfile keyword while execute the content of source at the
-" creation of a new file, matching the globing '*.example'
+" autocmd with bufnewfile keyword will execute the content
+" of source at the creation of a new file, matching the
+" globing '*.example'
 \end{minted}
   \begin{block}{file.txt}
 \begin{minted}{vim}
 :insert
-The content of this file will be written each time, you create a new
-file with vim.
+The content of this file will be written each time, you
+create a new file with vim.
 Typing the command:
 42sh \$ vim file.example
 or
 42sh \$ vim xx.example
-This is what the 'insert' command do, it is quite useful.
+This is what the `insert' command do, it is quite useful.
 \end{minted}
   \end{block}
 \end{frame}
@@ -440,27 +459,23 @@ This is what the 'insert' command do, it is quite useful.
 
 \begin{frame}[fragile]{Plugin}
 
-  Now you are able to install plugins, simply add them to your .vimrc
+  Now you are able to install plugins, simply add them to your \mintinline{bash}{.vimrc}
   \begin{minted}{vim}
     set nocompatible              " be iMproved, required
     filetype off                  " required
 
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
-
     Plugin 'VundleVim/Vundle.vim'     " Plugin Manager
     Plugin 'vim-airline/vim-airline'  " Statusbar
     Plugin 'vim-syntastic/syntastic'  " Syntax Checking
     Plugin 'chriskempson/base16'      " Base16 Colorscheme
-
-
     if filereadable(expand("~/.vimrc_background"))
       let base16colorspace=256
       source ~/.vimrc_background
     endif
-
-    let g:syntastic_c_complier_options='-Wall -Werror -Wextra -pedantic -std=c99'
-
+    let g:syntastic_c_compiler_options= \
+      '-Wall -Werror -Wextra -pedantic -std=c99'
     call vundle#end()            " required
     filetype plugin indent on    " required
   \end{minted}
@@ -471,7 +486,12 @@ This is what the 'insert' command do, it is quite useful.
 
 \section*{Recap}
 \begin{frame}{Recap}
-
+Our githubs (contains the dotfiles)
+\begin{itemize}
+  \item \href{https://github.com/chanfrv/dotfiles}{chanfrv/dotfiles}
+  \item % TODO
+  \item % TODO
+\end{itemize}
 \end{frame}
 
 \section*{Questions}
