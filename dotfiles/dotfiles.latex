@@ -473,7 +473,7 @@ set colorcolumn=80
 Our githubs (contains the dotfiles)
 \begin{itemize}
   \item \href{https://github.com/chanfrv/dotfiles}{chanfrv/dotfiles}
-  \item % TODO
+  \item \href{https://github.com/hugodelahousse/dotfiles}{hugodelahousse/dotfiles}
   \item % TODO
 \end{itemize}
 \end{frame}
