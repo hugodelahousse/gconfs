@@ -268,8 +268,7 @@ Templates are available for a bunch of IDE and programs, among them:
   \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
-  \begin{block}{UI Basic Settings}
+\begin{frame}[fragile]{UI Basic Settings}
 \begin{minted}{vim}
 " Basic UI Config
 
@@ -282,11 +281,9 @@ set cursorline    " highlight current line
 set wildmenu      " show all autocomplete of the vim commands
 set showmatch     " highlight brackets, parenthesis.
 \end{minted}
-  \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
-  \begin{block}{Tabs \& Spaces Basic Settings}
+\begin{frame}[fragile]{Tabs \& Spaces Basic Settings}
 \begin{minted}{vim}
 " Basic tabs \& space config
 
@@ -295,11 +292,9 @@ set softabstop=2  " set number of spaces in tab when editing
 set shiftwidth=2  " set tab to 2 spaces
 set expandtab     " convert tabs to spaces
 \end{minted}
-  \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
-  \begin{block}{Indentation Basic Settings}
+\begin{frame}[fragile]{Indentation Basic Settings}
 \begin{minted}{vim}
 " Basic indent options
 
@@ -314,11 +309,9 @@ set cindent     " C indentation, strict but customizable
 " enable file type detection and associate its good indentation
 filetype plugin indent on
 \end{minted}
-  \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
- \begin{block}{More Simple \& Cool Stuff}
+\begin{frame}[fragile]{More Simple \& Cool Stuff}
 \begin{minted}{vim}
 " More Vim options \& protips
 
@@ -340,12 +333,10 @@ map <KEY> :vimscript<CR>
 " optimize vim output, to keep some static elements unchanged
 set lazydraw
 \end{minted}
-  \end{block}
 \end{frame}
 
 \subsection*{Survival Vim for Exams: the SVE}
 \begin{frame}[fragile]{Survival Vim for Exams}
-  \begin{block}{SVE : for Newbies}
   \begin{minted}{vim}
 " Survival VIM for Exams
 
@@ -360,7 +351,6 @@ set autoindent
 set smartindent
 set colorcolumn=80
   \end{minted}
-  \end{block}
 \end{frame}
 
 %\subsection*{autocmd}
