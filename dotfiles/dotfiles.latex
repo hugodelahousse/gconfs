@@ -65,7 +65,7 @@
 \subsection*{What is X11?}
 \begin{frame}{X Window System (X11)}
 \begin{itemize}
-  \item The X Window System (X11, or shortened to simply X) is a windowing system for bitmap displays, common on UNIX-like computer operating systems.
+  \item The X Window System (X11) is a windowing system for bitmap displays, common on UNIX-like computer operating systems.
   \item i3 is designed for X11.
   \item To load i3 you have the choice:
     \begin{itemize}
@@ -81,7 +81,7 @@
   \item Where you set your colours, your font, and more.
   \item Location: \mintinline{bash}{~/.Xresources}
   \begin{block}{Naming}
-    Xresources is just a naming convention, you can rename it according to your fantasies, then you will have to run: \mintinline{bash}{$ xrdb dotfile}
+    Xresources is just a naming convention, you can rename it according to your fantasies, then you will have to run:\\\mintinline{bash}{42sh$ xrdb dotfile}
   \end{block}
 \end{itemize}
 \end{frame}
@@ -225,23 +225,21 @@ Templates are available for a bunch of IDE and programs, among them:
 \end{frame}
 \subsection*{vimrc}
 \begin{frame}{.vimrc}
-  \begin{block}{}
-    The \mintinline{bash}{.vimrc} file is the main configuration file for vim
-    \begin{itemize}
-      \item Use vim script language
-      \item YOU will learn how to fill it up
-      \item This configuration file is used for:
-        \begin{itemize}
-          \item ui
-          \item colors
-          \item indentation
-          \item tabulation behaviour
-          \item plugins
-          \item any vim script command
-          \item and much more\dots
-        \end{itemize}
-    \end{itemize}
-  \end{block}
+  The \mintinline{bash}{.vimrc} file is the main configuration file for vim
+  \begin{itemize}
+    \item Use vim script language
+    \item YOU will learn how to fill it up
+    \item This configuration file is used for:
+      \begin{itemize}
+        \item ui
+        \item colors
+        \item indentation
+        \item tabulation behaviour
+        \item plugins
+        \item any vim script command
+        \item and much more\dots
+      \end{itemize}
+  \end{itemize}
 \end{frame}
 
 
@@ -369,15 +367,13 @@ set colorcolumn=80
 \begin{frame}[fragile]{autocmd}
   \begin{block}{autocmd}
   This feature of vim allow you to automate execution of vimscripts.
-  \end{block}
-\begin{minted}{vim}
+    \begin{minted}{vim}
 " Example of use of autocmd
 autocmd bufnewfile *.example source /path/to/a/txt/file
-
-" autocmd with bufnewfile keyword will execute the content
-" of source at the creation of a new file, matching the
-" globing '*.example'
-\end{minted}
+" autocmd with bufnewfile keyword will execute the content of source
+" at the creation of a new file, matching the globing '*.example'
+    \end{minted}
+  \end{block}
   \begin{block}{file.txt}
 \begin{minted}{vim}
 :insert
