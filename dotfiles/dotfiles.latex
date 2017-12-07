@@ -363,30 +363,30 @@ set colorcolumn=80
   \end{block}
 \end{frame}
 
-\subsection*{autocmd}
-\begin{frame}[fragile]{autocmd}
-  \begin{block}{autocmd}
-  This feature of vim allow you to automate execution of vimscripts.
-    \begin{minted}{vim}
-" Example of use of autocmd
-autocmd bufnewfile *.example source /path/to/a/txt/file
-" autocmd with bufnewfile keyword will execute the content of source
-" at the creation of a new file, matching the globing '*.example'
-    \end{minted}
-  \end{block}
-  \begin{block}{file.txt}
-\begin{minted}{vim}
-:insert
-The content of this file will be written each time, you
-create a new file with vim.
-Typing the command:
-42sh$ vim file.example
-or
-42sh$ vim xx.example
-This is what the `insert' command do, it is quite useful.
-\end{minted}
-  \end{block}
-\end{frame}
+%\subsection*{autocmd}
+%\begin{frame}[fragile]{autocmd}
+%  \begin{block}{autocmd}
+%  This feature of vim allow you to automate execution of vimscripts.
+%    \begin{minted}{vim}
+%" Example of use of autocmd
+%autocmd bufnewfile *.example source /path/to/a/txt/file
+%" autocmd with bufnewfile keyword will execute the content of source
+%" at the creation of a new file, matching the globing '*.example'
+%    \end{minted}
+%  \end{block}
+%  \begin{block}{file.txt}
+%\begin{minted}{vim}
+%:insert
+%The content of this file will be written each time, you
+%create a new file with vim.
+%Typing the command:
+%42sh$ vim file.example
+%or
+%42sh$ vim xx.example
+%This is what the `insert' command do, it is quite useful.
+%\end{minted}
+%  \end{block}
+%\end{frame}
 
 %\subsection*{highlight \& match}
 %\begin{frame}
