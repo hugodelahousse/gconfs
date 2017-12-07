@@ -158,17 +158,19 @@ Templates are available for a bunch of IDE and programs, among them:
 
   First, install a builder (Many are available)
 
-  % \mintinline{bash}{pip3 install pybase16-builder}
-
-  Then download and build the colorschems
+  Then download and build the colorschemes
   \begin{minted}{bash}
     pip3 install pybase16-builder
     mkdir -p $HOME/.dotfiles/base16 && cd $HOME/.dotfiles/base16
     pybase16 update && pybase16 build
   \end{minted}
-  Now all the color schemes are downloaded.
+
+  \vspace{1cm}
+  Now all the color schemes are downloaded
 
   Read their README to know how to apply them
+
+
 \end{frame}
 \begin{frame}[fragile]{Base16 Shell}
   For instance, to get base16 in your shells, in your .bashrc/.zshrc:
@@ -404,7 +406,7 @@ This is what the 'insert' command do, it is quite useful.
 
 \begin{frame}{Plugins}
 
-  Multiple Package managers available
+  Multiple Package managers available:
   \begin{itemize}
     \item Vundle
     \item Pathogen
